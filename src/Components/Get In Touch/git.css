@@ -1,0 +1,80 @@
+.gitdiv{
+    /* background-color: rgb(250, 178, 45); */
+    background-color: pink;
+    width: 100%;
+    height: 110vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.subdiv{
+    width: 70%;
+    height: 75%;
+    background-color: white;
+}
+.subdiv>p{
+    text-align: center;
+    margin:20px ;
+    font-weight: bold;
+    font-size: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+    border-bottom: 5px solid palevioletred;
+    width: 12rem;
+}
+.subdiv>span{
+    color: gray;
+    padding: 1rem 3rem;
+    width: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.address p{
+    color: gray;
+    padding: 0.1rem 3rem;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    text-align: end;
+    width: 90%;
+   
+}
+.address p>*{
+    transform: scale(0.9);
+    margin-left: 10px;
+}
+.address span{
+    width: 100px;
+    height: 100px;
+    padding: 10px;
+    /* border: 4px solid palevioletred; */
+    border-radius: 100%;
+
+}
+.address span a>*{
+    margin-top: 130px;
+   transform: scale(1.1);
+}
+.address span>*:hover{
+    box-shadow: 10px 10px 30px palevioletred;
+    transform: scale(1.5);
+    cursor: pointer;
+    transition: all 200ms;
+    
+}
+.address{
+text-align: center;
+}
+
+@media screen and (max-width:480px){
+    .subdiv{
+        transform: scale(0.9);
+    }
+    .subdiv>span{
+        width: 100%;
+        transform: scale(1);
+    }
+    .address>p{
+       display: none;
+    }
+}

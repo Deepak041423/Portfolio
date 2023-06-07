@@ -1,0 +1,65 @@
+.mainproj{
+    width: 100%;
+    height: 80vh;
+    display: grid;
+grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+    justify-content: center;
+    margin-left: 5rem;
+}
+
+.projcard{
+    width: 300px;
+    height: 400px;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid pink;
+    border-radius: 5px;
+}
+.projcard:hover{
+    cursor: pointer;
+    box-shadow: 5px 5px 40px orange;
+    transition: all 400ms;
+}
+.projcard img{
+    width: 300px;
+    height: 180px;
+    transform: scale(0.8);
+}
+.projcard span{
+    color: gray;
+    font-size: 14px;
+    padding: 0px 4px;
+}
+.projdata{
+    display: flex;
+    flex-direction: column;
+justify-content: start;
+    padding: 10px;
+    color: red;
+}
+.projcard p{
+    text-align: center;    
+
+}
+.maincardproj>*{
+    justify-content: center;
+    display: flex;
+    text-decoration: none;
+}
+.maincardproj{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 20px;
+    margin-top: -1rem;
+}
+@media screen and (max-width:480px)
+{
+    .maincardproj{
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+  
+
+}

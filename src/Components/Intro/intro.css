@@ -1,0 +1,160 @@
+.intro{
+    height: 77vh;
+    margin-top: 9rem;
+    display: flex;
+    justify-content: center;
+}
+
+.i-left{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 2rem;
+    margin-left: 2rem;
+
+}
+
+.i-right{
+    flex: 1;
+}
+.i-name{
+    display: flex;
+    flex-direction: column;
+}
+.i-name :nth-child(1){
+  color: black;
+  font: bold;
+  font-size: 3rem;
+}
+
+.i-name :nth-child(2){
+    color: orange;
+    font: bold;
+    font-size: 3rem;
+  }
+  .i-name :nth-child(3){
+    color: gray;
+    font: 100;
+    font-size: 19px;
+    margin-top: 20px;
+  }
+  #i-button{
+    width: 7rem;
+    height: 2rem;
+    font-size: 16px;
+    text-align: center;
+  }
+  .i-icons{
+    margin-top: 1rem;
+    display: flex;
+    gap: 0.7rem;
+  }
+  .i-icons img{
+    width: 50px;
+    height: 50px;
+  }
+  .i-icons img:hover{
+    cursor: pointer;
+  }
+  .i-right {
+    position: relative;
+  }
+  .i-right *{
+    position: absolute;
+    z-index: 1;
+  }
+  
+.i-right :nth-child(1){
+    /* transform: scale(0.5); */
+    height: 300px;
+    width: 500px;
+    margin-left: 50px;
+    /* left: -15%;
+    top: -9%; */
+
+}
+.i-right :nth-child(2){
+    /* transform: scale(0.5); */
+    height: 300px;
+    width: 400px;
+    margin-left: 150px;
+}
+.i-right :nth-child(3){
+    /* transform: scale(0.5); */
+    height: 300px;
+    width: 300px;
+    background-color: transparent;
+    margin-left: 150px;
+    /* border: 1px solid red; */
+    border-bottom-right-radius: 150px;
+    border-bottom-left-radius: 150px;
+    border-top-right-radius: 150px;
+    border-top-left-radius: 150px;
+    
+}
+
+ /* .i-right :nth-child(3){
+  height: 350px;
+  width: 320px;
+  margin-left: 150px;
+  margin-top: -60px;
+ 
+  
+}  */
+.i-right :nth-child(4){
+  height: 120px;
+  width: 120px;
+}
+
+.blur{
+  width: 22rem;
+  height: 14rem;
+  border-radius: 50%;
+  position: absolute;
+  filter: blur(100px);
+  z-index: -9;
+  /* bottom: -1px; */
+}
+#aqua{
+  background: aqua;
+}
+#pink{
+  top: -5rem;
+  left: 25rem;
+  background: rgb(255, 0, 238);
+  width: 100px;
+  height: 300px;
+  filter: blur(180px);
+}
+
+@media screen and (max-width:480px)
+{ 
+  .intro{
+    flex-direction: column;
+  }
+
+  .i-right{
+    transform: scale(0.6);
+    left:-4rem;
+    top: -30rem;
+    z-index: -1;
+    
+  }
+  .i-name{
+    transform: scale(0.5);
+    margin-top: 5rem;
+  }
+  .i-name>span:nth-of-type(3){
+    transform: scale(2);
+    margin-top: 2rem;    
+  }
+  .i-icons{
+    display: none;
+  }
+  #i-button{
+    margin-left: 4rem;
+  }
+  
+  
+}
+  

@@ -1,0 +1,51 @@
+section{
+    width: 100%;
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: -4rem;
+}
+
+.mainbox{
+    width: 70%;
+    height: 60vh;
+    background-color: aliceblue;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+.left{
+   
+    justify-content: center;
+    text-align: center;
+    
+}
+.left img{
+    width: 150px;
+    height: 150px;
+    border-radius: 100%;
+}
+.right{
+    margin-left: 40px;
+    display: flex;
+    justify-content: center;
+    width: 70%;
+    padding: 20px;
+}
+.right p{
+    font-size: 18px;
+}
+#cvbtn{
+    margin-top: 1rem;
+    transform: scale(0.7);
+}
+@media screen and (max-width:480px){
+    .right>*{
+    display: none;      }
+    .mainbox{
+        display:grid ;
+        height: 300px;
+    }
+}

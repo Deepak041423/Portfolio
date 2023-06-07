@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+  
+    <style>
+        
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.searchbox{
+    display: flex;
+    
+}
+*:not(i)
+{
+    font-family:"Poppins", sans-serif;
+}
+body{
+    background-color: rgb(230, 176, 176);
+}
+#nam{
+    color: rgb(181, 104, 104);
+    margin-top: -40px;
+    margin-bottom: 30px;
+    font-weight: lighter;
+    
+   
+}
+.container{
+    
+    width: 90vmin;
+    background-color: azure;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    top: 50%;
+    left: 50%;
+    padding: 40px;
+    border-radius:10px ;
+    box-shadow: 0 30px 40px rgb(225, 129, 129);    
+}
+#inp-word{
+    border-bottom: 2px solid rgb(224, 132, 132) ;
+    border-top: 0ch;
+    border-left: 0ch;
+    border-right: 0ch;
+    width: 100%;
+    background-color: transparent;
+    outline: none;
+    margin-right: 20px;
+ 
+}
+#search-btn{
+    padding: 5px 10px;
+    width: 50%;
+    background-color: rgb(234, 199, 199); 
+    border: none;   
+    outline: none;
+    border-radius: 5px;
+}
+.result{
+    position: relative;
+}
+.result h3{
+    font-size: 30px;
+    color: rgb(32, 32, 32);
+
+}
+.result .word{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 80px;
+    
+}
+.result button{
+    background-color: transparent;
+    border: none;
+    outline: none;
+    font-size: 13px;
+    display: none;
+
+}
+#search-btn:active{
+    background-color: transparent;
+    border: none;
+    outline: none;
+    font-size: 13px;
+    background-color:rgb(224, 173, 173); ;
+}
+.result .details{
+display: flex;
+gap: 10px;
+color: rgb(150, 144, 144);
+margin: 5px 0 20px 0;
+font-size: 14px;
+}
+.word-meaning{
+    color: rgb(92, 7, 7);    
+}
+.word-example{
+    color: rgb(94, 10, 10);    
+    font-style: italic;
+    border-left: 5px solid  rgb(240, 180, 180); ;
+    margin-top: 20px;
+    padding-left: 20px;
+}
+#dee{
+    margin-top: 50px;
+    margin-bottom: -20px;
+    color: rgb(209, 167, 167);
+    font-size: 13px;
+    
+}
+h4{
+    padding: 10px;
+    color: rgb(114, 35, 242);
+}
+    </style>
+</head>
+<body>
+    <audio id="sound"></audio>
+    <div class="container">
+        <center>
+            <h4 id="nam">Mobile dictionary</h4>
+        </center>
+
+        <div class="searchbox">
+
+            <input type="text" placeholder="Type the word here.." id="inp-word">
+            <div>
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+            <button id="search-btn">
+                Search
+            </button>
+        </div>
+                <div class="result" id="result">
+       
+                </div>
+
+        <center>
+            <h3 id="dee">@Its me deepak</h3>
+        </center>
+    </div>
+    <script>const url="https://api.dictionaryapi.dev/api/v2/entries/en/";
+        const result=document.getElementById("result");
+        const sound=document.getElementById("sound");
+        const btn=document.getElementById("search-btn");
+        
+        btn.addEventListener("click", () =>
+        
+        {
+            let inpWord=document.getElementById("inp-word").value;
+            fetch(`${url}${inpWord}`)
+            // .then((response)=> response.json)
+            .then((response)=> response.json())
+            // .then((data)=>console.log(data));
+            .then((data)=> 
+            {   console.log(data)
+                result.innerHTML = `            
+                 <div class="word">
+                <h3>${inpWord}</h3>
+           
+                <button onclick="ound()">
+                    <i class="fas fa-volume-up"></i>
+                    </button>
+            </div>
+        
+            <div class="details">
+                <p>${data[0].meanings[0].partOfSpeech}</p>
+                <p>/${data[0].phonetics[1].text}/</p>
+            </div>
+        
+        
+        <p class="word-meaning">${data[0].meanings[0].definitions[0].definition}</p>
+        <p class="word-example">${data[0].meanings[0].definitions[0].example || "" }</p>
+        
+        
+        `
+            sound.setAttribute("src", `https:${data[0].phonetics[0].audio}`)
+              
+            })
+            .catch( ()=> {
+                result.innerHTML=`<h4> Sorry! couldn't able to find your word </h4>`
+            });
+
+            function ound()
+            {
+                sound.play();
+            }
+         
+            
+            
+           
+        });
+        function ound()
+            {
+                sound.play();
+            }
+        
+        
+        </script>
+</body>
+</html>
